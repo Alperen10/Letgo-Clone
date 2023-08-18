@@ -1,25 +1,30 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { View, Text, ScrollView } from 'react-native'
 import styles from './styles'
 import { AntDesign } from '@expo/vector-icons';
+import productsAssets from '../../../assets/products';
+import { Product } from "../../models/index"
+import FavouriteProducts from "../../components/FavouriteProducts"
+import MainProducts from "../../components/MainProducts"
+import CategoryFilter from '../../components/CategoryFilter';
+import MessageNotification from '../../components/MessageNotification';
+
 
 
 function index() {
-    return (
-        <View style={styles.productsContainer}>
-            <View style={styles.titleProducts}>
-                <Text style={styles.topicTitle}>
-                    Vitrin İlanları
-                </Text>
-                <View>
-                    <Text style={styles.detailTitle}>
-                        Hepsini gör
-                    </Text>
-                    <AntDesign name="right" size={24} color="black" />
-                </View>
-            </View>
-        </View>
+    const [products, setProducts] = useState<Product[]>([])
+    useEffect(() => {
+        setProducts(productsAssets)
+    }, [])
 
+
+    return (
+        <ScrollView style={{backgroundColor:"white",height:"100%"}}>
+            <MessageNotification/>
+            <CategoryFilter/>
+            <FavouriteProducts/>
+            <MainProducts mainProducts={products}/>
+        </ScrollView>
     )
 }
 

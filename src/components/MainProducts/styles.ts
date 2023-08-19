@@ -4,18 +4,21 @@ const styles = StyleSheet.create({
     productsContainer:{
         width:"92%",
         marginHorizontal:"4%",
-        backgroundColor:"white",
     },
     titleProducts:{
         flexDirection:"row",
         justifyContent:"space-between",
         alignItems:"center",
-        marginBottom:10,
+        marginBottom:15,
         marginTop:20
     },
     topicTitle:{
         fontWeight:"bold",
         fontSize:16,
+    },
+    topicTitleFiltered:{
+        fontWeight:"bold",
+        fontSize:18,
     },
     detailTitle:{
         fontWeight:"bold",

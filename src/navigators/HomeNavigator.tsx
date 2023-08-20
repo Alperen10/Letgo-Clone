@@ -3,7 +3,8 @@ import { createStackNavigator } from "@react-navigation/stack"
 import HomeScreen from "../screens/HomeScreen"
 import { SafeAreaView, TouchableOpacity, Image, TextInput, Text } from 'react-native'
 import CategoryFilterScreen from "../screens/CategoryFilterScreen"
-
+import { FontAwesome5 } from "@expo/vector-icons"
+import { useNavigation } from '@react-navigation/native'
 
 const Stack = createStackNavigator()
 
@@ -23,7 +24,27 @@ const MainHeaderComponent = () => {
             <Text style={{ color: "#FF184D", fontSize: 18 }}>Filtrele</Text>
         </SafeAreaView>
     )
+}
 
+const CategoryHeaderComponent = () => {
+    const navigation_user = useNavigation()
+
+    return (
+        <SafeAreaView style={{ flexDirection: "row", alignItems: "center", width: "90%", marginHorizontal: "5%", marginBottom: 10 }}>
+            <TouchableOpacity onPress={() => navigation_user.goBack()}>
+                <FontAwesome5
+                    name="arrow-left"
+                    size={24}
+                    color="#989898"
+                />
+            </TouchableOpacity>
+            <TextInput
+                placeholder="Ara..."
+                style={{ backgroundColor: "#e5e5e5", flex: 1, marginHorizontal: 10, height: 35, borderRadius: 10, paddingLeft: "32%", fontSize: 15 }}
+            />
+            <Text style={{ color: "#FF184D", fontSize: 18 }}>Filtrele (1)</Text>
+        </SafeAreaView>
+    )
 }
 
 function HomeNavigator() {
@@ -43,7 +64,7 @@ function HomeNavigator() {
                 component={CategoryFilterScreen}
                 options={{
                     header: () => (
-                        <MainHeaderComponent />
+                        <CategoryHeaderComponent />
                     )
                 }}
             />

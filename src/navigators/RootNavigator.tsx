@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import HomeNavigator from './HomeNavigator'
 import { Foundation, Ionicons, MaterialCommunityIcons, AntDesign, FontAwesome } from "@expo/vector-icons"
+import PostNavigator from './PostNavigator'
 
 
 const Tab = createBottomTabNavigator()
@@ -39,7 +40,7 @@ function RootNavigator() {
                 tabBarInactiveTintColor: "#959595",
                 headerShown: false,
                 tabBarStyle: {
-                    height: 80,
+                    height: 70,
                 },
             }}
         >
@@ -90,7 +91,7 @@ function RootNavigator() {
             />
             <Tab.Screen
                 name="İlanlarım"
-                component={HomeNavigator}
+                component={PostNavigator}
                 options={{
                     tabBarIcon: ({ color }) => (
                         <AntDesign name="appstore1" size={24} color={color} />

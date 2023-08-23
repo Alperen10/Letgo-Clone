@@ -35,7 +35,9 @@ function index() {
                         {
                             headerTexts.map((item, index) => {
                                 return (
-                                    <View style={{ paddingVertical: 10, borderBottomWidth: index == 0 ? 3 : 0, borderBottomColor: "#FF3E55" }}>
+                                    <View style={{ paddingVertical: 10, borderBottomWidth: index == 0 ? 3 : 0, borderBottomColor: "#FF3E55" }}
+                                        key={index}
+                                    >
                                         <Text style={{ color: index == 0 ? "#FF3E55" : "#797979", fontWeight: index == 0 ? "bold" : "500", fontSize: 15 }}>{item}</Text>
                                     </View>
                                 )

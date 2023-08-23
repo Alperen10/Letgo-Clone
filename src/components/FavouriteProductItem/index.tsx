@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native'
 import { Product } from "../../models"
 import styles from "../../components/FavouriteProductItem/style"
 import { AntDesign } from '@expo/vector-icons';
+import {useNavigation} from "@react-navigation/native"
 
 type productProps = {
     product: Product,
@@ -10,8 +11,10 @@ type productProps = {
 }
 
 function index({ product, prodType }: productProps) {
+    const navigation = useNavigation()
+
     return (
-        <TouchableOpacity style={prodType === "favourite" ? styles.favourite : styles.main}>
+        <TouchableOpacity onPress={()=>navigation.navigate("ProductDetails",{product:product})} style={prodType === "favourite" ? styles.favourite : styles.main}>
             <View style={prodType === "favourite" ? styles.favouriteView : styles.mainView}>
                 <Image
                     source={{ uri: product.image }}

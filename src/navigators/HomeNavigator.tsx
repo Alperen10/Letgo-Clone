@@ -11,7 +11,7 @@ const Stack = createStackNavigator()
 
 const MainHeaderComponent = () => {
     return (
-        <SafeAreaView style={{ flexDirection: "row", alignItems: "center", width: "90%", marginHorizontal: "5%", marginBottom: 10 }}>
+        <SafeAreaView style={{ flexDirection: "row", alignItems: "center", width: "90%", marginHorizontal: "5%", marginBottom: 10, marginTop: 20 }}>
             <TouchableOpacity>
                 <Image
                     source={{ uri: "https://www.looper.com/img/gallery/why-the-professor-from-money-heist-looks-so-familiar/intro-1587390568.jpg" }}
@@ -33,7 +33,7 @@ const CategoryHeaderComponent = () => {
 
 
     return (
-        <View style={{ flexDirection: "row", alignItems: "center", width: "90%", marginHorizontal: "5%", marginBottom: 10 }}>
+        <View style={{ flexDirection: "row", alignItems: "center", width: "90%", marginHorizontal: "5%", marginBottom: 10, marginTop: 22 }}>
             <TouchableOpacity onPress={() => navigation_user.goBack()}>
                 <FontAwesome5
                     name="arrow-left"
@@ -53,18 +53,17 @@ const CategoryHeaderComponent = () => {
 function MyStack({ navigation, route }) {
     const tabHiddenRoutes = ["ProductDetails"]
 
-    React.useLayoutEffect(()=>{
-        const routeName = getFocusedRouteNameFromRoute(route)
-        console.log("Route name is ",routeName)
-        if(tabHiddenRoutes.includes(routeName)){
-            navigation.setOptions({tabBarStyle:{display:"none"}})
+
+    React.useLayoutEffect(() => {
+        const routeName = getFocusedRouteNameFromRoute(route);
+        console.log("Route Name is ", routeName)
+        if (tabHiddenRoutes.includes(routeName)) {
+            navigation.setOptions({ tabBarStyle: { display: 'none' } });
+        } else {
+            console.log("Aç ", routeName)
+            navigation.setOptions({ tabBarStyle: { display: 'true' } });
         }
-        else{
-            console.log("Aç ",routeName)
-            navigation.setOptions({tabBarStyle:{display:"true"}})
-            
-        }
-    },[navigation,route])
+    }, [navigation, route]);
 
     return (
         <Stack.Navigator>
@@ -72,9 +71,7 @@ function MyStack({ navigation, route }) {
                 name="Home"
                 component={HomeScreen}
                 options={{
-                    header: () => (
-                        <MainHeaderComponent />
-                    )
+                    header: () => <MainHeaderComponent />,
                 }}
             />
             <Stack.Screen
@@ -83,33 +80,51 @@ function MyStack({ navigation, route }) {
                 options={{
                     headerTransparent: true,
                     headerRight: () => (
-                        <View style={{
-                            backgroundColor: 'rgba(0,0,0,0.5', height: 36, width: 36, flexDirection: "row", justifyContent: "center",
-                            alignItems: "center", borderRadius: 18, marginRight: 20
-                        }}>
-                            <Ionicons style={{ marginRight: -3 }} name="ios-arrow-redo-sharp" size={24} color="#FEFDFC" />
+                        <View
+                            style={{
+                                marginRight: 20,
+                                backgroundColor: "rgba(0,0,0,0.5)",
+                                height: 36,
+                                width: 36,
+                                flexDirection: "row",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: 18,
+                            }}
+                        >
+                            <Ionicons
+                                style={{ marginRight: -3 }}
+                                name="ios-arrow-redo-sharp"
+                                size={24}
+                                color="#FEFDFC"
+                            />
                         </View>
                     ),
                     headerLeft: () => (
-                        <TouchableOpacity style={{
-                            backgroundColor: 'rgba(0,0,0,0.5', height: 36, width: 36, flexDirection: "row", justifyContent: "center",
-                            alignItems: "center", borderRadius: 18, marginLeft: 20
-                        }}
+                        <TouchableOpacity
                             onPress={() => navigation.goBack()}
+                            style={{
+                                marginLeft: 20,
+                                backgroundColor: "rgba(0,0,0,0.5)",
+                                height: 36,
+                                width: 36,
+                                flexDirection: "row",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                borderRadius: 18,
+                            }}
                         >
                             <Entypo name="cross" size={28} color="#FEFDFC" />
                         </TouchableOpacity>
-                    )
+                    ),
+                    headerTitle: () => null,
                 }}
-
             />
             <Stack.Screen
                 name="CategoryFiltering"
                 component={CategoryFilterScreen}
                 options={{
-                    header: () => (
-                        <CategoryHeaderComponent />
-                    )
+                    header: () => <CategoryHeaderComponent />,
                 }}
             />
         </Stack.Navigator>

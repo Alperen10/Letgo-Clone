@@ -23,7 +23,7 @@ function index({ product, prodType }: productProps) {
                 />
                 {prodType === "favourite" && parseInt(product.id) % 2 == 1 && (
                     <View style={styles.labeledFav}>
-                        <Text style={{ fontSize: 9 }}>Öne Çıkan</Text>
+                        <Text style={{ fontSize: 9,fontWeight:"500" }}>Öne Çıkan</Text>
                     </View>)
                 }
 

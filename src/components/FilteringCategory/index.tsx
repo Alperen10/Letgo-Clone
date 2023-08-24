@@ -6,7 +6,7 @@ import { Feather } from "@expo/vector-icons"
 
 const { width, height } = Dimensions.get("window")
 function index({ category }: { category: Category }) {
-    const [filtering, setFilterings] = useState<Filtering[]>([])
+    const [filterings, setFilterings] = useState<Filtering[]>([])
 
     useEffect(() => {
         setFilterings(filteringsData)

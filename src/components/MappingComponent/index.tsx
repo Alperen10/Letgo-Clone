@@ -17,7 +17,7 @@ function index() {
                 }}
                 style={{ height: height * 0.18, borderRadius: 12, marginTop: 18 }}
             />
-            <View style={{ flexDirection: 'row', alignItems: 'center', height: height * 0.044, marginTop: -height * 0.04, borderColor: "#a6a6a6", borderBottomWidth: 0.2, borderRightWidth: 0.2, borderLeftWidth: 0.2, borderBottomLeftRadius: 12, borderBottomRightRadius: 12, backgroundColor: 'white' }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', height: height * 0.044, marginTop: -height * 0.04, borderColor: "#a6a6a6", borderBottomWidth: 0.2, borderRightWidth: 0.2, borderLeftWidth: 0.2, borderBottomLeftRadius: 10, borderBottomRightRadius: 10, backgroundColor: 'white' }}>
                 <Text style={{ paddingHorizontal: 16 }}>10300, Edremit</Text>
             </View>
 

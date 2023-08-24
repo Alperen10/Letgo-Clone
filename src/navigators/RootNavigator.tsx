@@ -22,7 +22,7 @@ function RootNavigator() {
                 borderRadius:35,
                 borderWidth:5,
                 borderColor:"white",
-                marginTop:-18
+                marginTop:-22
             }}
             >
                 <FontAwesome name="camera" size={20} color="white" />
@@ -40,9 +40,6 @@ function RootNavigator() {
                 tabBarActiveTintColor: "#F24E61",
                 tabBarInactiveTintColor: "#959595",
                 headerShown: false,
-                tabBarStyle: {
-                    height: 70,
-                },
             }}
         >
 
